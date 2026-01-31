@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easy Job Application - Profile Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>🚀 Easy Job Application</h1>
+      <p class="subtitle">Fill out your profile once, autofill everywhere</p>
+    </header>
+
+    <div class="main-content">
+      <!-- Sidebar for profile management -->
+      <aside class="sidebar">
+        <div class="section">
+          <h2>📁 Profiles</h2>
+          <div class="form-group">
+            <select id="profileSelect" class="form-control">
+              <option value="">-- New Profile --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" id="profileName" class="form-control" placeholder="Profile name (e.g., Software Engineer)">
+          </div>
+          <div class="button-group">
+            <button id="saveProfileBtn" class="btn btn-success">💾 Save Profile</button>
+            <button id="deleteProfileBtn" class="btn btn-danger">🗑️ Delete</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>⚡ Quick Actions</h2>
+          <button id="clearFormBtn" class="btn btn-secondary">Clear Form</button>
+          <button id="exportBtn" class="btn btn-secondary">📤 Export Profiles</button>
+          <button id="importBtn" class="btn btn-secondary">📥 Import Profiles</button>
+          <input type="file" id="importFile" accept=".json" style="display: none;">
+        </div>
+
+        <div class="section">
+          <h2>🔗 Quick Nav</h2>
+          <div class="quick-nav">
+            <a href="#personal-info">Personal Info</a>
+            <a href="#address-info">Address</a>
+            <a href="#phone-info">Phone Numbers</a>
+            <a href="#online-presence">Online Presence</a>
+            <a href="#work-experience">Work Experience</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#work-auth">Work Auth</a>
+            <a href="#cover-letter">Cover Letter</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main form area -->
+      <main class="form-area">
+        <!-- Personal Information -->
+        <div class="section" id="personal-info">
+          <h2>👤 Personal Information</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" data-field="firstName" class="field-input" placeholder="John">
+            </div>
+            <div class="form-group">
+              <label for="middleName">Middle Name</label>
+              <input type="text" id="middleName" data-field="middleName" class="field-input" placeholder="Michael">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" data-field="lastName" class="field-input" placeholder="Doe">
+            </div>
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" data-field="fullName" class="field-input" placeholder="John Michael Doe">
+            </div>
+            <div class="form-group">
+              <label for="preferredName">Preferred Name / Nickname</label>
+              <input type="text" id="preferredName" data-field="preferredName" class="field-input" placeholder="Johnny">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" data-field="email" class="field-input" placeholder="john@example.com">
+            </div>
+          </div>
+        </div>
+
+        <!-- Address Information -->
+        <div class="section" id="address-info">
+          <h2>🏠 Address</h2>
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="address">Street Address / Address Line 1 *</label>
+              <input type="text" id="address" data-field="address" class="field-input" placeholder="123 Main St">
+            </div>
+            <div class="form-group full-width">
+              <label for="address2">Address Line 2</label>
+              <input type="text" id="address2" data-field="address2" class="field-input" placeholder="Apt 4B">
+            </div>
+            <div class="form-group">
+              <label for="city">City *</label>
+              <input type="text" id="city" data-field="city" class="field-input" placeholder="New York">
+            </div>
+            <div class="form-group">
+              <label for="state">State/Province *</label>
+              <input type="text" id="state" data-field="state" class="field-input" placeholder="NY">
+            </div>
+            <div class="form-group">
+              <label for="zipCode">Zip/Postal Code *</label>
+              <input type="text" id="zipCode" data-field="zipCode" class="field-input" placeholder="10001">
+            </div>
+            <div class="form-group">
+              <label for="county">County</label>
+              <input type="text" id="county" data-field="county" class="field-input" placeholder="New York County">
+            </div>
+            <div class="form-group">
+              <label for="country">Country *</label>
+              <input type="text" id="country" data-field="country" class="field-input" placeholder="United States">
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone Numbers -->
+        <div class="section" id="phone-info">
+          <h2>📞 Phone Numbers</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="phone">Primary Phone *</label>
+              <input type="tel" id="phone" data-field="phone" class="field-input" placeholder="(555) 123-4567">
+            </div>
+            <div class="form-group">
+              <label for="phoneCountryCode">Country Code</label>
+              <input type="text" id="phoneCountryCode" data-field="phoneCountryCode" class="field-input" placeholder="+1">
+            </div>
+            <div class="form-group">
+              <label for="phoneExtension">Phone Extension</label>
+              <input type="text" id="phoneExtension" data-field="phoneExtension" class="field-input" placeholder="123">
+            </div>
+            <div class="form-group">
+              <label for="cellPhone">Cell/Mobile Phone</label>
+              <input type="tel" id="cellPhone" data-field="cellPhone" class="field-input" placeholder="(555) 123-4567">
+            </div>
+            <div class="form-group">
+              <label for="homePhone">Home Phone</label>
+              <input type="tel" id="homePhone" data-field="homePhone" class="field-input" placeholder="(555) 987-6543">
+            </div>
+            <div class="form-group">
+              <label for="workPhone">Work Phone</label>
+              <input type="tel" id="workPhone" data-field="workPhone" class="field-input" placeholder="(555) 456-7890">
+            </div>
+          </div>
+        </div>
+
+        <!-- Online Presence -->
+        <div class="section" id="online-presence">
+          <h2>🌐 Online Presence</h2>
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="linkedin">LinkedIn URL</label>
+              <input type="url" id="linkedin" data-field="linkedin" class="field-input" placeholder="https://linkedin.com/in/johndoe">
+            </div>
+            <div class="form-group full-width">
+              <label for="github">GitHub URL</label>
+              <input type="url" id="github" data-field="github" class="field-input" placeholder="https://github.com/johndoe">
+            </div>
+            <div class="form-group full-width">
+              <label for="portfolio">Portfolio/Website/Homepage</label>
+              <input type="url" id="portfolio" data-field="portfolio" class="field-input" placeholder="https://johndoe.com">
+            </div>
+            <div class="form-group full-width">
+              <label for="twitter">Twitter/X URL</label>
+              <input type="url" id="twitter" data-field="twitter" class="field-input" placeholder="https://twitter.com/johndoe">
+            </div>
+          </div>
+        </div>
+
+        <!-- Work Experience Section -->
+        <div class="section" id="work-experience">
+          <h2>💼 Work Experience</h2>
+          <p class="section-hint">Add up to 3 work experiences. Job 1 should be your most recent position.</p>
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="yearsExperience">Total Years of Experience</label>
+              <input type="number" id="yearsExperience" data-field="yearsExperience" class="field-input" placeholder="5">
+            </div>
+            <div class="form-group">
+              <label for="desiredTitle">Desired Job Title</label>
+              <input type="text" id="desiredTitle" data-field="desiredTitle" class="field-input" placeholder="Staff Software Engineer">
+            </div>
+            <div class="form-group">
+              <label for="desiredSalary">Desired Salary</label>
+              <input type="text" id="desiredSalary" data-field="desiredSalary" class="field-input" placeholder="$150,000">
+            </div>
+            <div class="form-group">
+              <label for="noticePeriod">Notice Period / Earliest Start</label>
+              <input type="text" id="noticePeriod" data-field="noticePeriod" class="field-input" placeholder="2 weeks">
+            </div>
+          </div>
+
+          <!-- Job 1 (Most Recent) -->
+          <div class="subsection">
+            <h3>💼 Job 1 (Most Recent / Current)</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="job1Title">Job Title *</label>
+                <input type="text" id="job1Title" data-field="job1Title" class="field-input" placeholder="Senior Software Engineer">
+              </div>
+              <div class="form-group">
+                <label for="job1Company">Company *</label>
+                <input type="text" id="job1Company" data-field="job1Company" class="field-input" placeholder="Tech Corp Inc.">
+              </div>
+              <div class="form-group">
+                <label for="job1Location">Location</label>
+                <input type="text" id="job1Location" data-field="job1Location" class="field-input" placeholder="New York, NY">
+              </div>
+              <div class="form-group">
+                <label for="job1Current">Currently Work Here</label>
+                <select id="job1Current" data-field="job1Current" class="field-input">
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="job1StartMonth">Start Month</label>
+                <input type="text" id="job1StartMonth" data-field="job1StartMonth" class="field-input" placeholder="January">
+              </div>
+              <div class="form-group">
+                <label for="job1StartYear">Start Year</label>
+                <input type="text" id="job1StartYear" data-field="job1StartYear" class="field-input" placeholder="2020">
+              </div>
+              <div class="form-group">
+                <label for="job1EndMonth">End Month</label>
+                <input type="text" id="job1EndMonth" data-field="job1EndMonth" class="field-input" placeholder="Present">
+              </div>
+              <div class="form-group">
+                <label for="job1EndYear">End Year</label>
+                <input type="text" id="job1EndYear" data-field="job1EndYear" class="field-input" placeholder="Present">
+              </div>
+              <div class="form-group full-width">
+                <label for="job1Description">Role Description / Responsibilities</label>
+                <textarea id="job1Description" data-field="job1Description" class="field-input" rows="4" placeholder="Describe your responsibilities and achievements..."></textarea>
+              </div>
+              <div class="form-group full-width">
+                <label for="job1ReasonLeaving">Reason for Leaving</label>
+                <input type="text" id="job1ReasonLeaving" data-field="job1ReasonLeaving" class="field-input" placeholder="Seeking new opportunities">
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="subsection">
+            <h3>💼 Job 2</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="job2Title">Job Title</label>
+                <input type="text" id="job2Title" data-field="job2Title" class="field-input" placeholder="Software Engineer">
+              </div>
+              <div class="form-group">
+                <label for="job2Company">Company</label>
+                <input type="text" id="job2Company" data-field="job2Company" class="field-input" placeholder="Previous Corp">
+              </div>
+              <div class="form-group">
+                <label for="job2Location">Location</label>
+                <input type="text" id="job2Location" data-field="job2Location" class="field-input" placeholder="Boston, MA">
+              </div>
+              <div class="form-group">
+                <label for="job2Current">Currently Work Here</label>
+                <select id="job2Current" data-field="job2Current" class="field-input">
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="job2StartMonth">Start Month</label>
+                <input type="text" id="job2StartMonth" data-field="job2StartMonth" class="field-input" placeholder="June">
+              </div>
+              <div class="form-group">
+                <label for="job2StartYear">Start Year</label>
+                <input type="text" id="job2StartYear" data-field="job2StartYear" class="field-input" placeholder="2018">
+              </div>
+              <div class="form-group">
+                <label for="job2EndMonth">End Month</label>
+                <input type="text" id="job2EndMonth" data-field="job2EndMonth" class="field-input" placeholder="December">
+              </div>
+              <div class="form-group">
+                <label for="job2EndYear">End Year</label>
+                <input type="text" id="job2EndYear" data-field="job2EndYear" class="field-input" placeholder="2019">
+              </div>
+              <div class="form-group full-width">
+                <label for="job2Description">Role Description / Responsibilities</label>
+                <textarea id="job2Description" data-field="job2Description" class="field-input" rows="4" placeholder="Describe your responsibilities and achievements..."></textarea>
+              </div>
+              <div class="form-group full-width">
+                <label for="job2ReasonLeaving">Reason for Leaving</label>
+                <input type="text" id="job2ReasonLeaving" data-field="job2ReasonLeaving" class="field-input" placeholder="Career advancement">
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="subsection">
+            <h3>💼 Job 3</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="job3Title">Job Title</label>
+                <input type="text" id="job3Title" data-field="job3Title" class="field-input" placeholder="Junior Developer">
+              </div>
+              <div class="form-group">
+                <label for="job3Company">Company</label>
+                <input type="text" id="job3Company" data-field="job3Company" class="field-input" placeholder="Startup Inc">
+              </div>
+              <div class="form-group">
+                <label for="job3Location">Location</label>
+                <input type="text" id="job3Location" data-field="job3Location" class="field-input" placeholder="San Francisco, CA">
+              </div>
+              <div class="form-group">
+                <label for="job3Current">Currently Work Here</label>
+                <select id="job3Current" data-field="job3Current" class="field-input">
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="job3StartMonth">Start Month</label>
+                <input type="text" id="job3StartMonth" data-field="job3StartMonth" class="field-input" placeholder="January">
+              </div>
+              <div class="form-group">
+                <label for="job3StartYear">Start Year</label>
+                <input type="text" id="job3StartYear" data-field="job3StartYear" class="field-input" placeholder="2016">
+              </div>
+              <div class="form-group">
+                <label for="job3EndMonth">End Month</label>
+                <input type="text" id="job3EndMonth" data-field="job3EndMonth" class="field-input" placeholder="May">
+              </div>
+              <div class="form-group">
+                <label for="job3EndYear">End Year</label>
+                <input type="text" id="job3EndYear" data-field="job3EndYear" class="field-input" placeholder="2018">
+              </div>
+              <div class="form-group full-width">
+                <label for="job3Description">Role Description / Responsibilities</label>
+                <textarea id="job3Description" data-field="job3Description" class="field-input" rows="4" placeholder="Describe your responsibilities and achievements..."></textarea>
+              </div>
+              <div class="form-group full-width">
+                <label for="job3ReasonLeaving">Reason for Leaving</label>
+                <input type="text" id="job3ReasonLeaving" data-field="job3ReasonLeaving" class="field-input" placeholder="Better opportunity">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="section" id="education">
+          <h2>🎓 Education</h2>
+          <p class="section-hint">Add up to 3 education entries. Education 1 should be your highest/most recent degree.</p>
+
+          <!-- Education 1 (Most Recent) -->
+          <div class="subsection">
+            <h3>🎓 Education 1 (Highest/Most Recent)</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="edu1School">School/University *</label>
+                <input type="text" id="edu1School" data-field="edu1School" class="field-input" placeholder="Massachusetts Institute of Technology">
+              </div>
+              <div class="form-group">
+                <label for="edu1Degree">Degree</label>
+                <input type="text" id="edu1Degree" data-field="edu1Degree" class="field-input" placeholder="Bachelor of Science">
+              </div>
+              <div class="form-group">
+                <label for="edu1Major">Major / Field of Study</label>
+                <input type="text" id="edu1Major" data-field="edu1Major" class="field-input" placeholder="Computer Science">
+              </div>
+              <div class="form-group">
+                <label for="edu1GPA">GPA</label>
+                <input type="text" id="edu1GPA" data-field="edu1GPA" class="field-input" placeholder="3.8">
+              </div>
+              <div class="form-group">
+                <label for="edu1GradYear">Graduation Year</label>
+                <input type="text" id="edu1GradYear" data-field="edu1GradYear" class="field-input" placeholder="2020">
+              </div>
+              <div class="form-group">
+                <label for="edu1Location">Location</label>
+                <input type="text" id="edu1Location" data-field="edu1Location" class="field-input" placeholder="Cambridge, MA">
+              </div>
+              <div class="form-group">
+                <label for="edu1Current">Most Recent Education</label>
+                <select id="edu1Current" data-field="edu1Current" class="field-input">
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education 2 -->
+          <div class="subsection">
+            <h3>🎓 Education 2</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="edu2School">School/University</label>
+                <input type="text" id="edu2School" data-field="edu2School" class="field-input" placeholder="Community College">
+              </div>
+              <div class="form-group">
+                <label for="edu2Degree">Degree</label>
+                <input type="text" id="edu2Degree" data-field="edu2Degree" class="field-input" placeholder="Associate's Degree">
+              </div>
+              <div class="form-group">
+                <label for="edu2Major">Major / Field of Study</label>
+                <input type="text" id="edu2Major" data-field="edu2Major" class="field-input" placeholder="General Studies">
+              </div>
+              <div class="form-group">
+                <label for="edu2GPA">GPA</label>
+                <input type="text" id="edu2GPA" data-field="edu2GPA" class="field-input" placeholder="3.5">
+              </div>
+              <div class="form-group">
+                <label for="edu2GradYear">Graduation Year</label>
+                <input type="text" id="edu2GradYear" data-field="edu2GradYear" class="field-input" placeholder="2018">
+              </div>
+              <div class="form-group">
+                <label for="edu2Location">Location</label>
+                <input type="text" id="edu2Location" data-field="edu2Location" class="field-input" placeholder="Boston, MA">
+              </div>
+            </div>
+          </div>
+
+          <!-- Education 3 -->
+          <div class="subsection">
+            <h3>🎓 Education 3</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="edu3School">School/University</label>
+                <input type="text" id="edu3School" data-field="edu3School" class="field-input" placeholder="High School">
+              </div>
+              <div class="form-group">
+                <label for="edu3Degree">Degree</label>
+                <input type="text" id="edu3Degree" data-field="edu3Degree" class="field-input" placeholder="High School Diploma">
+              </div>
+              <div class="form-group">
+                <label for="edu3Major">Major / Field of Study</label>
+                <input type="text" id="edu3Major" data-field="edu3Major" class="field-input" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="edu3GPA">GPA</label>
+                <input type="text" id="edu3GPA" data-field="edu3GPA" class="field-input" placeholder="3.9">
+              </div>
+              <div class="form-group">
+                <label for="edu3GradYear">Graduation Year</label>
+                <input type="text" id="edu3GradYear" data-field="edu3GradYear" class="field-input" placeholder="2016">
+              </div>
+              <div class="form-group">
+                <label for="edu3Location">Location</label>
+                <input type="text" id="edu3Location" data-field="edu3Location" class="field-input" placeholder="Hometown, ST">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="section" id="skills">
+          <h2>🛠️ Skills & Certifications</h2>
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="skills">Technical Skills (comma separated)</label>
+              <textarea id="skills" data-field="skills" class="field-input" rows="3" placeholder="JavaScript, Python, React, Node.js, AWS, Docker, Kubernetes..."></textarea>
+            </div>
+            <div class="form-group full-width">
+              <label for="certifications">Certifications</label>
+              <textarea id="certifications" data-field="certifications" class="field-input" rows="2" placeholder="AWS Solutions Architect, PMP, etc."></textarea>
+            </div>
+            <div class="form-group full-width">
+              <label for="languages">Languages Spoken</label>
+              <input type="text" id="languages" data-field="languages" class="field-input" placeholder="English (Native), Spanish (Fluent), French (Basic)">
+            </div>
+          </div>
+        </div>
+
+        <!-- Work Authorization -->
+        <div class="section" id="work-auth">
+          <h2>📋 Work Authorization & Demographics</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="workAuthorization">Work Authorization</label>
+              <select id="workAuthorization" data-field="workAuthorization" class="field-input">
+                <option value="">Select...</option>
+                <option value="US Citizen">US Citizen</option>
+                <option value="Green Card">Green Card / Permanent Resident</option>
+                <option value="H1B">H1B Visa</option>
+                <option value="EAD">EAD</option>
+                <option value="OPT">OPT</option>
+                <option value="TN Visa">TN Visa</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="requireSponsorship">Requires Sponsorship</label>
+              <select id="requireSponsorship" data-field="requireSponsorship" class="field-input">
+                <option value="">Select...</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="legallyAuthorized">Legally Authorized to Work</label>
+              <select id="legallyAuthorized" data-field="legallyAuthorized" class="field-input">
+                <option value="">Select...</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="over18">Are you 18 or older?</label>
+              <select id="over18" data-field="over18" class="field-input">
+                <option value="">Select...</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender (Optional)</label>
+              <select id="gender" data-field="gender" class="field-input">
+                <option value="">Prefer not to say</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Non-binary">Non-binary</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="veteranStatus">Veteran Status (Optional)</label>
+              <select id="veteranStatus" data-field="veteranStatus" class="field-input">
+                <option value="">Prefer not to say</option>
+                <option value="Not a Veteran">Not a Veteran</option>
+                <option value="Veteran">Veteran</option>
+                <option value="Protected Veteran">Protected Veteran</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="disability">Disability Status (Optional)</label>
+              <select id="disability" data-field="disability" class="field-input">
+                <option value="">Prefer not to say</option>
+                <option value="No">No, I do not have a disability</option>
+                <option value="Yes">Yes, I have a disability</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ethnicity">Ethnicity (Optional)</label>
+              <select id="ethnicity" data-field="ethnicity" class="field-input">
+                <option value="">Prefer not to say</option>
+                <option value="Asian">Asian</option>
+                <option value="Black">Black or African American</option>
+                <option value="Hispanic">Hispanic or Latino</option>
+                <option value="Native American">Native American or Alaska Native</option>
+                <option value="Pacific Islander">Native Hawaiian or Pacific Islander</option>
+                <option value="White">White</option>
+                <option value="Two or More">Two or More Races</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cover Letter & Additional -->
+        <div class="section" id="cover-letter">
+          <h2>📝 Cover Letter & Additional</h2>
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="coverLetter">Cover Letter Template</label>
+              <textarea id="coverLetter" data-field="coverLetter" class="field-input" rows="8" placeholder="Write your default cover letter template here..."></textarea>
+            </div>
+            <div class="form-group full-width">
+              <label for="summary">Professional Summary / About Me</label>
+              <textarea id="summary" data-field="summary" class="field-input" rows="4" placeholder="Brief professional summary..."></textarea>
+            </div>
+            <div class="form-group full-width">
+              <label for="whyInterested">Why are you interested? (Template)</label>
+              <textarea id="whyInterested" data-field="whyInterested" class="field-input" rows="3" placeholder="Template answer for why you're interested in positions..."></textarea>
+            </div>
+            <div class="form-group full-width">
+              <label for="additionalInfo">Additional Information</label>
+              <textarea id="additionalInfo" data-field="additionalInfo" class="field-input" rows="3" placeholder="Any additional information..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Referral -->
+        <div class="section">
+          <h2>🤝 Referral Information</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="referralSource">How did you hear about us?</label>
+              <input type="text" id="referralSource" data-field="referralSource" class="field-input" placeholder="LinkedIn, Indeed, Company Website">
+            </div>
+            <div class="form-group">
+              <label for="referrerName">Referrer Name</label>
+              <input type="text" id="referrerName" data-field="referrerName" class="field-input" placeholder="Jane Smith">
+            </div>
+            <div class="form-group">
+              <label for="referrerEmail">Referrer Email</label>
+              <input type="email" id="referrerEmail" data-field="referrerEmail" class="field-input" placeholder="jane@company.com">
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="statusMessage" class="status-message"></div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
