@@ -67,19 +67,19 @@ function matchFieldToData(element, data) {
   
   // Match patterns for each field type
   const fieldPatterns = {
-    firstName: /first[\s_-]?name|fname|given[\s_-]?name/i,
-    lastName: /last[\s_-]?name|lname|surname|family[\s_-]?name/i,
-    fullName: /full[\s_-]?name|name(?!.*email)|your[\s_-]?name/i,
-    email: /email|e-mail|mail(?!ing)/i,
-    phone: /phone|telephone|mobile|cell/i,
-    address: /address|street(?!.*city|.*state)/i,
-    city: /city|town/i,
-    state: /state|province|region/i,
-    zipCode: /zip|postal|postcode/i,
-    linkedin: /linkedin|linked-in/i,
-    portfolio: /portfolio|website|personal[\s_-]?site/i,
-    experience: /experience|years|yoe/i,
-    coverLetter: /cover[\s_-]?letter|motivation|why[\s_-]?you/i
+    firstName: /\b(first[\s_-]?name|fname|given[\s_-]?name)\b/i,
+    lastName: /\b(last[\s_-]?name|lname|surname|family[\s_-]?name)\b/i,
+    fullName: /\b(full[\s_-]?name|your[\s_-]?name)\b/i,
+    email: /\b(email|e-mail)\b|mail(?!ing)/i,
+    phone: /\b(phone|telephone|mobile|cell)\b/i,
+    address: /\baddress\b|street(?!.*city|.*state)/i,
+    city: /\b(city|town)\b/i,
+    state: /\b(state|province|region)\b/i,
+    zipCode: /\b(zip|postal|postcode)\b/i,
+    linkedin: /\b(linkedin|linked-in)\b/i,
+    portfolio: /\b(portfolio|website|personal[\s_-]?site)\b/i,
+    experience: /\b(experience|years|yoe)\b/i,
+    coverLetter: /\b(cover[\s_-]?letter|motivation|why[\s_-]?you)\b/i
   };
   
   // Try to match each pattern
@@ -196,11 +196,33 @@ function detectFormFields() {
 }
 
 // Show notification on page
+let notificationStyleAdded = false;
+
 function showNotification(message) {
   // Remove existing notification
   const existing = document.getElementById('easy-job-app-notification');
   if (existing) {
     existing.remove();
+  }
+  
+  // Add animation style once
+  if (!notificationStyleAdded) {
+    const style = document.createElement('style');
+    style.id = 'easy-job-app-notification-style';
+    style.textContent = `
+      @keyframes slideIn {
+        from {
+          transform: translateX(400px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+    notificationStyleAdded = true;
   }
   
   // Create notification
@@ -216,28 +238,12 @@ function showNotification(message) {
     padding: 16px 24px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 999999;
+    z-index: 10000;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 14px;
     font-weight: 500;
     animation: slideIn 0.3s ease;
   `;
-  
-  // Add animation
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes slideIn {
-      from {
-        transform: translateX(400px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-  `;
-  document.head.appendChild(style);
   
   document.body.appendChild(notification);
   
