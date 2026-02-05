@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Required Fields Checklist - Easy Job Application</title>
+  <link rel="stylesheet" href="checklist.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>📋 Required Fields Checklist</h1>
+      <p class="subtitle">Track all the fields you need for job applications</p>
+    </header>
+
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-number" id="totalFields">0</span>
+        <span class="stat-label">Total Fields</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" id="coveredFields">0</span>
+        <span class="stat-label">Covered</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" id="missingFields">0</span>
+        <span class="stat-label">Missing</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" id="coveragePercent">0%</span>
+        <span class="stat-label">Coverage</span>
+      </div>
+    </div>
+
+    <div class="actions-bar">
+      <div class="profile-selector">
+        <label for="profileSelect">Compare with Profile:</label>
+        <select id="profileSelect" class="form-control">
+          <option value="">-- No Profile --</option>
+        </select>
+      </div>
+      <div class="action-buttons">
+        <button id="exportChecklistBtn" class="btn btn-secondary">📤 Export Checklist</button>
+        <button id="clearAllBtn" class="btn btn-danger">🗑️ Clear All</button>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="section">
+        <h2>🔴 Missing Fields <span class="count" id="missingCount">(0)</span></h2>
+        <p class="section-hint">These fields are required but you don't have data for them yet</p>
+        <div id="missingFieldsList" class="fields-list"></div>
+      </div>
+
+      <div class="section">
+        <h2>🟢 Covered Fields <span class="count" id="coveredCount">(0)</span></h2>
+        <p class="section-hint">These fields can be auto-filled from your profile</p>
+        <div id="coveredFieldsList" class="fields-list"></div>
+      </div>
+
+      <div class="section">
+        <h2>📝 Add Custom Field</h2>
+        <p class="section-hint">Manually add a field you know you'll need</p>
+        <div class="add-field-form">
+          <input type="text" id="customFieldLabel" class="form-control" placeholder="Field name (e.g., 'Security Clearance')">
+          <select id="customFieldType" class="form-control">
+            <option value="text">Text</option>
+            <option value="email">Email</option>
+            <option value="tel">Phone</option>
+            <option value="url">URL</option>
+            <option value="number">Number</option>
+            <option value="date">Date</option>
+            <option value="select-one">Dropdown</option>
+            <option value="textarea">Text Area</option>
+          </select>
+          <button id="addCustomFieldBtn" class="btn btn-success">➕ Add Field</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="statusMessage" class="status-message"></div>
+  </div>
+
+  <script src="checklist.js"></script>
+</body>
+</html>
